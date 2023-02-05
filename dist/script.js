@@ -15,6 +15,7 @@
     OUTER: "#495057",
     INNER: "#15aabf",
     BUMPER: "#fab005",
+    BUMPERLINK: "#FF0000",
     BUMPER_LIT: "#fff3bf",
     PADDLE: "#e64980",
     PINBALL: "#dee2e6",
@@ -103,9 +104,8 @@
       bumper(225, 250, false),
       bumper(345, 250, false),
 
-      // bottom bumpers (left, right)
-      bumper(165, 340, true),
-      bumper(285, 340, false),
+      // bottom link bumper
+      bumper(225, 340, true),
 
       // shooter lane wall
       wall(440, 520, 20, 560, COLOR.OUTER),
@@ -413,18 +413,20 @@
 
   // round bodies that repel pinball
   function bumper(x, y, link) {
-    let label;
+    let label, color;
     if (link === true) {
       label = "bumperLink";
+      color = COLOR.BUMPERLINK;
     } else {
       label = "bumper";
+      color = COLOR.BUMPER;
     }
 
     let bumper = Matter.Bodies.circle(x, y, 25, {
       label: label,
       isStatic: true,
       render: {
-        fillStyle: COLOR.BUMPER,
+        fillStyle: color,
       },
     });
 
