@@ -12,8 +12,9 @@
   };
   const COLOUR = {
     BACKGROUND: "#212529",
-    OUTER: "#495057",
-    INNER: "#15aabf",
+    // OUTER: "transparent",
+    OUTER: "#000000",
+    INNER: "#6D4219",
     BUMPER: "#fab005",
     BUMPERLINK: "#FF0000",
     BUMPER_LIT: "#fff3bf",
