@@ -10,7 +10,7 @@
     APRON_LEFT: "0 0 180 120 0 120 0 0",
     APRON_RIGHT: "180 0 180 120 0 120 180 0",
   };
-  const COLOR = {
+  const COLOUR = {
     BACKGROUND: "#212529",
     OUTER: "#495057",
     INNER: "#15aabf",
@@ -64,7 +64,7 @@
         width: world.bounds.max.x,
         height: world.bounds.max.y,
         wireframes: WIREFRAMES,
-        background: COLOR.BACKGROUND,
+        background: COLOUR.BACKGROUND,
       },
     });
     Matter.Render.run(render);
@@ -95,9 +95,9 @@
       path(239, 86, PATHS.DOME),
 
       // pegs (left, mid, right)
-      wall(140, 140, 20, 40, COLOR.INNER),
-      wall(225, 140, 20, 40, COLOR.INNER),
-      wall(310, 140, 20, 40, COLOR.INNER),
+      wall(140, 140, 20, 40, COLOUR.INNER),
+      wall(225, 140, 20, 40, COLOUR.INNER),
+      wall(310, 140, 20, 40, COLOUR.INNER),
 
       // top bumpers (left, mid, right)
       bumper(105, 250, false),
@@ -105,26 +105,26 @@
       bumper(345, 250, false),
 
       // bottom link bumper
-      bumper(225, 340, true),
+      bumper(225, 340, false),
 
       // shooter lane wall
-      wall(440, 520, 20, 560, COLOR.OUTER),
+      wall(440, 520, 20, 560, COLOUR.OUTER),
 
       // drops (left, right)
       path(25, 360, PATHS.DROP_LEFT),
       path(425, 360, PATHS.DROP_RIGHT),
 
       // slingshots (left, right)
-      wall(120, 510, 20, 120, COLOR.INNER),
-      wall(330, 510, 20, 120, COLOR.INNER),
+      wall(120, 510, 20, 120, COLOUR.INNER),
+      wall(330, 510, 20, 120, COLOUR.INNER),
 
       // out lane walls (left, right)
-      wall(60, 529, 20, 160, COLOR.INNER),
-      wall(390, 529, 20, 160, COLOR.INNER),
+      wall(60, 529, 20, 160, COLOUR.INNER),
+      wall(390, 529, 20, 160, COLOUR.INNER),
 
       // flipper walls (left, right);
-      wall(93, 624, 20, 98, COLOR.INNER, -0.96),
-      wall(357, 624, 20, 98, COLOR.INNER, 0.96),
+      wall(93, 624, 20, 98, COLOUR.INNER, -0.96),
+      wall(357, 624, 20, 98, COLOUR.INNER, 0.96),
 
       // aprons (left, right)
       path(79, 740, PATHS.APRON_LEFT),
@@ -159,7 +159,7 @@
       angle: 1.57,
       chamfer: {},
       render: {
-        fillStyle: COLOR.PADDLE,
+        fillStyle: COLOUR.PADDLE,
       },
     });
     paddleLeft.brick = Matter.Bodies.rectangle(172, 672, 40, 80, {
@@ -203,7 +203,7 @@
       angle: -1.57,
       chamfer: {},
       render: {
-        fillStyle: COLOR.PADDLE,
+        fillStyle: COLOUR.PADDLE,
       },
     });
     paddleRight.brick = Matter.Bodies.rectangle(278, 672, 40, 80, {
@@ -249,7 +249,7 @@
         group: stopperGroup,
       },
       render: {
-        fillStyle: COLOR.PINBALL,
+        fillStyle: COLOUR.PINBALL,
       },
     });
     Matter.World.add(world, pinball);
@@ -354,10 +354,10 @@
   }
   function pingBumper(bumper) {
     updateScore(currentScore + 10);
-    // flash color
-    bumper.render.fillStyle = COLOR.BUMPER_LIT;
+    // flash colour
+    bumper.render.fillStyle = COLOUR.BUMPER_LIT;
     setTimeout(function () {
-      bumper.render.fillStyle = COLOR.BUMPER;
+      bumper.render.fillStyle = COLOUR.BUMPER;
     }, 100);
   }
 
@@ -379,19 +379,19 @@
     return Matter.Bodies.rectangle(x, y, width, height, {
       isStatic: true,
       render: {
-        fillStyle: COLOR.OUTER,
+        fillStyle: COLOUR.OUTER,
       },
     });
   }
 
   // wall segments
-  function wall(x, y, width, height, color, angle = 0) {
+  function wall(x, y, width, height, colour, angle = 0) {
     return Matter.Bodies.rectangle(x, y, width, height, {
       angle: angle,
       isStatic: true,
       chamfer: { radius: 10 },
       render: {
-        fillStyle: color,
+        fillStyle: colour,
       },
     });
   }
@@ -402,10 +402,10 @@
     return Matter.Bodies.fromVertices(x, y, vertices, {
       isStatic: true,
       render: {
-        fillStyle: COLOR.OUTER,
+        fillStyle: COLOUR.OUTER,
 
         // add stroke and line width to fill in slight gaps between fragments
-        strokeStyle: COLOR.OUTER,
+        strokeStyle: COLOUR.OUTER,
         lineWidth: 1,
       },
     });
@@ -413,20 +413,20 @@
 
   // round bodies that repel pinball
   function bumper(x, y, link) {
-    let label, color;
+    let label, colour;
     if (link === true) {
       label = "bumperLink";
-      color = COLOR.BUMPERLINK;
+      colour = COLOUR.BUMPERLINK;
     } else {
       label = "bumper";
-      color = COLOR.BUMPER;
+      colour = COLOUR.BUMPER;
     }
 
     let bumper = Matter.Bodies.circle(x, y, 25, {
       label: label,
       isStatic: true,
       render: {
-        fillStyle: color,
+        fillStyle: colour,
       },
     });
 
