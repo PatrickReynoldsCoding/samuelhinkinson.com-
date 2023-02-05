@@ -17,7 +17,7 @@
     BUMPER: "#fab005",
     BUMPERLINK: "#FF0000",
     BUMPER_LIT: "#fff3bf",
-    PADDLE: "#e64980",
+    PADDLE: "#6D4219",
     PINBALL: "#dee2e6",
   };
   const GRAVITY = 0.75;
