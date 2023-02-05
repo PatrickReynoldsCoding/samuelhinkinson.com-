@@ -38,16 +38,18 @@ body {
   width: 20vw;
   height: auto;
   z-index: 2;
+  margin-bottom: 200px;
 }
 .top-face img {
   transform: scale(1.7);
+  bottom: 0;
 }
 
 .container {
   position: absolute;
   bottom: 0;
   background-color: #d89e78;
-  margin-left: 5%;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,6 +57,7 @@ body {
 }
 
 canvas {
+  margin-left: 10%;
 }
 
 .score {
