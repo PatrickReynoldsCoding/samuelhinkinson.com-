@@ -33,11 +33,11 @@ canvas {
   z-index: -2;
 }
 
-.overlay {
+.background-face {
   position: absolute;
   width: 80%;
   height: 98%;
-  background-color: #e64980;
+  background-image: url("../public/background-face.png");
   z-index: -3;
 }
 .score {

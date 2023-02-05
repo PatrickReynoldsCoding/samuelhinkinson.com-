@@ -64,7 +64,7 @@
         width: world.bounds.max.x,
         height: world.bounds.max.y,
         wireframes: WIREFRAMES,
-        background: COLOUR.BACKGROUND,
+        background: "transparent",
       },
     });
     Matter.Render.run(render);
