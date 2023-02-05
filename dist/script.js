@@ -12,8 +12,7 @@
   };
   const COLOUR = {
     BACKGROUND: "#212529",
-    // OUTER: "transparent",
-    OUTER: "#000000",
+    OUTER: "#d89e78",
     INNER: "#6D4219",
     BUMPER: "#fab005",
     BUMPERLINK: "#FF0000",
@@ -96,9 +95,6 @@
       path(239, 86, PATHS.DOME),
 
       // pegs (left, mid, right)
-      wall(140, 140, 20, 40, COLOUR.INNER),
-      wall(225, 140, 20, 40, COLOUR.INNER),
-      wall(310, 140, 20, 40, COLOUR.INNER),
 
       // top bumpers (left, mid, right)
       bumper(105, 250, false),
