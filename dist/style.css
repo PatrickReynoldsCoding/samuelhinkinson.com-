@@ -26,18 +26,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: relative;
   background-color: #000000;
   height: 100vh;
   width: 100vw;
 }
 
 .top-face {
-  /* background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-image: url("../public/large-face-top.png"); */
-  /* transform: scale(1.7); */
   position: absolute;
   bottom: 0;
   width: 20vw;
